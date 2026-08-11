@@ -268,7 +268,7 @@
   .sec-head h2{font-size:clamp(32px,4.2vw,48px);margin-top:10px;font-weight:400;letter-spacing:.02em;}
   .on-parchment .sec-head h2{color:var(--ink);}
   .sec-head p{color:var(--cream-soft);margin-top:14px;font-size:16.5px;}
-  .on-parchment .sec-head p{color:var(--ink-soft);}
+  .on-parchment .sec-head p{color:#3a3026;}
 
   /* ---------- GALLERY ---------- */
   .gallery-section{background:var(--charcoal-2);}
@@ -382,8 +382,11 @@
   .dish-leader{flex:1;border-bottom:1px dotted var(--cream-soft);margin:0 4px;transform:translateY(-4px);min-width:12px;}
   .dish-price{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14.5px;color:var(--ink);white-space:nowrap;}
   @media(max-width:760px){
-    .dish-grid{grid-template-columns:1fr;}
-    .dish-info{max-width:70%;}
+    .dish-grid{grid-template-columns:1fr;gap:0;}
+    .dish{flex-wrap:wrap;align-items:flex-start;}
+    .dish-info{max-width:100%;margin-bottom:4px;}
+    .dish-leader{display:none;}
+    .dish-price{display:block;width:100%;padding-left:22px;margin-top:4px;font-size:13.5px;}
   }
 
   /* ---------- ABOUT ---------- */
@@ -931,7 +934,7 @@ let touchDistance = 0;
 function openLightbox(imgSrc, title) {
   lightboxImg.src = imgSrc;
   lightboxImg.classList.remove('zoomed');
-  lightboxInfo.textContent = title ? `${title} · Scroll/pinch a zoomhoz · ESC bezáráshoz` : 'Scroll/pinch a zoomhoz · ESC bezáráshoz';
+  lightboxInfo.textContent = title || '';
   lightbox.classList.add('open');
   currentZoom = 1;
   document.body.style.overflow = 'hidden';
